@@ -45,22 +45,24 @@ def test_try():
     # pylint: disable=broad-except
     try:
         message += 'Success.'
+        print(non_existing_variable)
     except NameError:
         message += 'Something went wrong.'
     else:
         message += 'Nothing went wrong.'
 
-    assert message == 'Success.Nothing went wrong.'
+    assert message == 'Success.Something went wrong.'
 
     # The finally block, if specified, will be executed regardless if the try block raises an
     # error or not.
     message = ''
     try:
         # pylint: undefined-variable
-        print(not_existing_variable)  # noqa: F821
+        # print(not_existing_variable)  # noqa: F821
+        message += 'No error.'
     except NameError:
         message += 'Something went wrong.'
     finally:
         message += 'The "try except" is finished.'
 
-    assert message == 'Something went wrong.The "try except" is finished.'
+    assert message == 'No error.The "try except" is finished.'

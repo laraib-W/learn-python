@@ -18,12 +18,12 @@ def test_continue_statement():
 
     for number in range(0, 10):
         # Check if remainder after division is zero (which would mean that number is even).
-        if number % 2 == 0:
-            even_numbers.append(number)
+        if number % 2:
+            rest_of_the_numbers.append(number)
             # Stop current loop iteration and go to the next one immediately.
             continue
 
-        rest_of_the_numbers.append(number)
+        even_numbers.append(number)
 
     assert even_numbers == [0, 2, 4, 6, 8]
     assert rest_of_the_numbers == [1, 3, 5, 7, 9]

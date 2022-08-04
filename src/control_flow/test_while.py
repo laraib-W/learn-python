@@ -23,9 +23,9 @@ def test_while_statement():
 
     result = 1
 
-    while power > 0:
+    while power >= 0:
         result *= number
         power -= 1
 
     # 2^5 = 32
-    assert result == 32
+    assert result == 64
