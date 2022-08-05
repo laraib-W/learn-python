@@ -39,6 +39,7 @@ def test_dictionary():
 
     # To check whether a single key is in the dictionary, use the in keyword.
     assert 'apple' in fruits_dictionary
+    assert fruits_dictionary['apple'] == 'green'
     assert 'pineapple' not in fruits_dictionary
 
     # Change the apple color to "red".
@@ -66,7 +67,7 @@ def test_dictionary():
 
     # In addition, dict comprehensions can be used to create dictionaries from arbitrary key
     # and value expressions:
-    dictionary_via_expression = {x: x**2 for x in (2, 4, 6)}
+    dictionary_via_expression = {x: x**2 for x in range(10) if x % 2 == 0}
     assert dictionary_via_expression[2] == 4
     assert dictionary_via_expression[4] == 16
     assert dictionary_via_expression[6] == 36
