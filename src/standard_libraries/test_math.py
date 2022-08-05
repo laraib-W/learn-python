@@ -17,6 +17,8 @@ def test_math():
     """
     assert math.cos(math.pi / 4) == 0.70710678118654757
     assert math.log(1024, 2) == 10.0
+    assert math.pow(2,2) == 4
+    assert math.sqrt(4) == 2
 
 
 def test_random():
@@ -42,6 +44,9 @@ def test_random():
     # Random integer chosen from range(6)
     random_integer = random.randrange(6)  # i.e. 4
     assert 0 <= random_integer <= 6
+
+    random_integer = random.randint(4,5)  # i.e. 4
+    assert 0 <= random_integer <= 5
 
 
 def test_statistics():
