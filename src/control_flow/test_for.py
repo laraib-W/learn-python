@@ -30,7 +30,7 @@ def test_for_statement():
     # (for example to duplicate selected items), it is recommended that you first make a copy.
     # Iterating over a sequence does not implicitly make a copy. The slice notation makes this
     # especially convenient:
-    for word in words[:]:  # Loop over a slice copy of the entire list.
+    for word in words.copy():  # Loop over a slice copy of the entire list.
         if len(word) > 6:
             words.insert(0, word)
 
@@ -51,20 +51,29 @@ def test_for_statement():
     # To iterate over the indices of a sequence, you can combine range() and len() as follows:
     words = ['Mary', 'had', 'a', 'little', 'lamb']
     concatenated_string = ''
-
+    concatenated_string2 = ''
     # pylint: disable=consider-using-enumerate
     for word_index in range(len(words)):
         concatenated_string += words[word_index] + ' '
+    for word in words:
+        concatenated_string2 += word + ' '
 
     assert concatenated_string == 'Mary had a little lamb '
+    assert concatenated_string2 == 'Mary had a little lamb '
 
     # Or simply use enumerate().
-    concatenated_string = ''
+    string_dictionary={}
 
     for word_index, word in enumerate(words):
-        concatenated_string += word + ' '
+       string_dictionary[word_index] = word 
 
-    assert concatenated_string == 'Mary had a little lamb '
+    assert string_dictionary == {
+        0 : 'Mary',
+        1 : 'had',
+        2 : 'a',
+        3 : 'little',
+        4 : 'lamb'
+    }
 
     # When looping through dictionaries, the key and corresponding value can be retrieved at the
     # same time using the items() method.
