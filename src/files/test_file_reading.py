@@ -70,6 +70,23 @@ def test_files_open():
 
     assert file.closed
 
+    with open('src/files/write_file.txt', 'w') as file:
+        file.write('apple\n')
+        file.write('banana\n')
+
+    with open('src/files/write_file.txt', 'a') as file:
+        file.write('pineapple\n')
+
+
+    with open('src/files/write_file.txt', 'r') as file:
+        read_data = file.read()
+
+        assert read_data == (
+            'apple\n'
+            'banana\n'
+            'pineapple\n'
+        )
+        
     # If you’re not using the with keyword, then you should call f.close() to close the file and
     # immediately free up any system resources used by it. If you don’t explicitly close a file,
     # Python’s garbage collector will eventually destroy the object and close the open file for you,
