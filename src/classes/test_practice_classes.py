@@ -71,5 +71,4 @@ def test_class_and_instance_variable():
 
     # Each car has separate features list
     assert car1.features == ["Back Camera"]
-
-        
+    

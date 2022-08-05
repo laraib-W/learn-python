@@ -30,5 +30,4 @@ def test_instance_objects():
     assert dummy_instance.temporary_attribute == 1
     assert dummy_instance.name == "Dummy"
     del dummy_instance.temporary_attribute
-
-    #assert dummy_instance.temporary_attribute == 1
+    

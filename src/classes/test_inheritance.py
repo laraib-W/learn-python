@@ -37,7 +37,6 @@ class Employee(Person):
     in the global scope.)
     """
     def __init__(self, name, staff_id):
-        #Person.__init__(self, name)
         super().__init__(name)
         # You may also use super() here in order to avoid explicit using of parent class name:
         # >>> super().__init__(name)

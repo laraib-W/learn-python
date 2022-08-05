@@ -15,9 +15,9 @@ def test_class_and_instance_variable():
             self.model = model
 
     assert Car.name == 'Sports Car'
-
     assert Car.__doc__ == 'Car class example'
 
     car1 = Car('Ali',2019)
 
     assert car1.name, car1.model == ('Ali',2019)
+    
