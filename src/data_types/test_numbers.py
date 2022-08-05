@@ -45,6 +45,7 @@ def test_booleans():
 
     assert isinstance(true_boolean, bool)
     assert isinstance(false_boolean, bool)
+    assert(isinstance(true_boolean,int))
 
     # Let's try to cast boolean to string.
     assert str(true_boolean) == "True"

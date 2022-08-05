@@ -39,7 +39,16 @@ def test_handle_exceptions():
         # We should get here because of division by zero.
         exception_has_been_handled = True
 
-    assert exception_has_been_handled
+    exception_message = "No exception"
+    try:
+        result = 10 * (1 / 0)  # division by zero
+        # We should not get here at all.
+        assert result
+    except Exception:
+        # We should get here because of division by zero.
+        exception_message = "Zero Division Exception"
+
+    assert  exception_message == "Zero Division Exception"
 
     # Let's simulate undefined variable access exception.
     exception_has_been_handled = False
@@ -95,7 +104,7 @@ def test_handle_exceptions():
     try:
         result = 10
         # We should not get here at all.
-        assert result
+        assert result == 10
     except NameError:
         # We should get here because of division by zero.
         exception_has_been_handled = True
