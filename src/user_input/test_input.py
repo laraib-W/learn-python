@@ -15,3 +15,9 @@ def user_input():
 
 	# Printing a message based on the input.
 	print(f"Welcome, {user_input}!")
+
+	user_input = input("Please enter the list comma seperated\n")
+
+	lst= [int(i) for i in user_input.split(',')]
+
+	print(lst)
