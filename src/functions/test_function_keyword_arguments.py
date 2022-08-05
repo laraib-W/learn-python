@@ -103,17 +103,19 @@ def test_function_keyword_arguments():
     # (*name must occur before **name.) For example, if we define a function like this:
     def test_function(first_param, *arguments, **keywords):
         """This function accepts its arguments through "arguments" tuple and keywords dictionary."""
-        assert first_param == 'first param'
-        assert arguments == ('second param', 'third param')
+        assert first_param == 'new param'
+        assert arguments == ('first param','second param', 'third param')
         assert keywords == {
             'fourth_param_name': 'fourth named param',
             'fifth_param_name': 'fifth named param'
         }
 
     test_function(
+        'new param',
         'first param',
         'second param',
         'third param',
         fourth_param_name='fourth named param',
         fifth_param_name='fifth named param',
+
     )

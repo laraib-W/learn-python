@@ -90,9 +90,11 @@ def test_function_definition():
 
     def call_func(func):
         other_name = 'John'
-        return func(other_name)
+        output = 'Welcome! '
+        output += func(other_name)
+        return output
 
-    assert call_func(greet_one_more) == 'Hello, John'
+    assert call_func(greet_one_more) == 'Welcome! Hello, John'
 
     # Functions can return other functions. In other words, functions generating other functions.
 
