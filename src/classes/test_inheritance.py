@@ -6,7 +6,6 @@ Inheritance is one of the principles of object-oriented programming. Since class
 of the same code, inheritance allows a derived class to reuse the same code and modify accordingly
 """
 
-
 # pylint: disable=too-few-public-methods
 class Person:
     """Example of the base class"""
@@ -38,7 +37,7 @@ class Employee(Person):
     in the global scope.)
     """
     def __init__(self, name, staff_id):
-        Person.__init__(self, name)
+        super().__init__(name)
         # You may also use super() here in order to avoid explicit using of parent class name:
         # >>> super().__init__(name)
         self.staff_id = staff_id
@@ -47,7 +46,10 @@ class Employee(Person):
         """Get full employee id"""
         return self.get_name() + ', ' + self.staff_id
 
-
+class Manager(Employee):
+    def __init__(self, name, staff_id, department ):
+        super().__init__(name, staff_id)
+        self.department = department
 def test_inheritance():
     """Inheritance."""
 
@@ -55,12 +57,15 @@ def test_inheritance():
     # new instance of the class. Method references are resolved as follows: the corresponding class
     # attribute is searched, descending down the chain of base classes if necessary, and the method
     # reference is valid if this yields a function object.
-    person = Person('Bill')
-    employee = Employee('John', 'A23')
+    person = Person('Jack')
+    employee = Employee('John', 'A1')
+    manager = Manager('Ali', 'A3', 'Finance')
 
-    assert person.get_name() == 'Bill'
+    assert person.get_name() == 'Jack'
     assert employee.get_name() == 'John'
-    assert employee.get_full_id() == 'John, A23'
+    assert manager.get_name() == 'Ali'
+    employee.name = 'Bill'
+    assert employee.get_full_id() == 'Bill, A1'
 
     # Python has two built-in functions that work with inheritance:
     #
@@ -76,6 +81,7 @@ def test_inheritance():
 
     assert isinstance(person, Person)
     assert isinstance(employee, Person)
+    assert  not isinstance(employee, Manager)
 
     assert issubclass(Employee, Person)
     assert not issubclass(Person, Employee)
