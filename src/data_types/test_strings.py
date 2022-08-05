@@ -86,7 +86,7 @@ def test_string_type():
 
     # However, out of range slice indexes are handled gracefully when used
     # for slicing:
-    assert word[4:42] == 'on'
+    assert word[:42] == 'Python'
     assert word[42:] == ''
 
     # Python strings cannot be changed — they are immutable. Therefore,
@@ -135,8 +135,9 @@ def test_string_operators():
     text = (
         'Put several strings within parentheses '
         'to have them joined together.'
+        ' Testing to add the third string.'
     )
-    assert text == 'Put several strings within parentheses to have them joined together.'
+    assert text == 'Put several strings within parentheses to have them joined together. Testing to add the third string.'
 
     # If you want to concatenate variables or a variable and a literal, use +:
     prefix = 'Py'
@@ -162,7 +163,7 @@ def test_string_methods():
     assert hello_world_string.upper() == 'HELLO, WORLD!'
 
     # The replace() method replaces a string with another string.
-    assert hello_world_string.replace('H', 'J') == 'Jello, World!'
+    assert hello_world_string.replace('H', 'J').replace("W", "w") == 'Jello, world!'
 
     # The split() method splits the string into substrings if it finds instances of the separator.
     assert hello_world_string.split(',') == ['Hello', ' World!']
@@ -186,7 +187,11 @@ def test_string_methods():
     my_tuple = ('John', 'Peter', 'Vicky')
     assert ', '.join(my_tuple) == 'John, Peter, Vicky'
 
-    # Returns True if all characters in the string are upper case.
+
+    arr = ["1", "2", "3", "4", "5"]
+    assert ','.join(arr) == '1,2,3,4,5' 
+
+     # Returns True if all characters in the string are upper case.
     assert 'ABC'.isupper()
     assert not 'AbC'.isupper()
 
@@ -221,7 +226,7 @@ def test_string_formatting():
     no_votes = 43_132_495   # equivalent of 43132495
     percentage = yes_votes / (yes_votes + no_votes)
 
-    assert '{:-9} YES votes  {:2.2%}'.format(yes_votes, percentage) == ' 42572654 YES votes  49.67%'
+    assert f'{yes_votes:8} YES votes  {percentage:3.3%}' == '42572654 YES votes  49.673%'
 
     # When you don’t need fancy output but just want a quick display of some variables for debugging
     # purposes, you can convert any value to a string with the repr() or str() functions. The str()

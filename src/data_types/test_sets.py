@@ -19,8 +19,8 @@ def test_sets():
 
     # It is also possible to use the set() constructor to make a set.
     # Note the double round-brackets
-    fruits_set_via_constructor = set(("apple", "banana", "cherry"))
-
+    fruits_set_via_constructor = set(("apple", "banana", "cherry","strawberry","apple"))
+    assert fruits_set_via_constructor == {"apple", "banana", "cherry", "strawberry"}
     assert isinstance(fruits_set_via_constructor, set)
 
 
@@ -65,6 +65,8 @@ def test_set_methods():
     # Letters in first or second word but not both.
     assert first_char_set ^ second_char_set == {'r', 'd', 'b', 'm', 'z', 'l'}
 
+    # Letters in first or second but not in both
+    assert first_char_set.symmetric_difference(second_char_set) == {'r', 'd', 'b', 'm', 'z', 'l'}  
     # Similarly to list comprehensions, set comprehensions are also supported:
     word = {char for char in 'abracadabra' if char not in 'abc'}
     assert word == {'r', 'd'}

@@ -29,7 +29,7 @@ def test_list_type():
     assert squares[0] == 1  # indexing returns the item
     assert squares[-1] == 25
     assert squares[-3:] == [9, 16, 25]  # slicing returns a new list
-
+    assert squares[4:] == [25]
     # All slice operations return a new list containing the requested elements.
     # This means that the following slice returns a new (shallow) copy of
     # the list:
@@ -59,7 +59,7 @@ def test_list_type():
     assert letters == ['a', 'b', 'f', 'g']
     # clear the list by replacing all the elements with an empty list
     letters[:] = []
-    assert letters == []
+    assert not letters
 
     # The built-in function len() also applies to lists
     letters = ['a', 'b', 'c', 'd']
@@ -263,8 +263,8 @@ def test_list_comprehensions():
 
     # Call a method on each element.
     fresh_fruit = ['  banana', '  loganberry ', 'passion fruit  ']
-    clean_fresh_fruit = [weapon.strip() for weapon in fresh_fruit]
-    assert clean_fresh_fruit == ['banana', 'loganberry', 'passion fruit']
+    clean_fresh_fruit = [weapon.strip().replace("banana", "apple") for weapon in fresh_fruit]
+    assert clean_fresh_fruit == ['apple', 'loganberry', 'passion fruit']
 
     # Create a list of 2-tuples like (number, square).
     square_tuples = [(x, x ** 2) for x in range(6)]
@@ -299,6 +299,16 @@ def test_nested_list_comprehensions():
         [4, 8, 12],
     ]
 
+    # Square and transpose of a matrix:
+
+    squared_transposed_matrix = [[row[i]*row[i] for row in matrix] for i in range(len(matrix[0]))]
+
+    assert squared_transposed_matrix == [
+        [1, 25, 81],
+        [4, 36, 100],
+        [9, 49, 121],
+        [16, 64, 144]
+    ]
     # As we saw in the previous section, the nested listcomp is evaluated in the context of the
     # for that follows it, so this example is equivalent to:
     transposed = []
@@ -311,7 +321,11 @@ def test_nested_list_comprehensions():
         [3, 7, 11],
         [4, 8, 12],
     ]
-
+    assert list(zip(*squared_transposed_matrix)) == [
+        (1, 4, 9, 16),
+        (25, 36, 49, 64),
+        (81, 100, 121, 144),
+    ]
     # which, in turn, is the same as:
     transposed = []
     for i in range(4):
