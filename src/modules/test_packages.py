@@ -43,6 +43,7 @@ from sound_package.effects import echo
 # Yet another variation is to import the desired function or variable directly:
 from sound_package.effects.echo import echo_function
 
+from fruits_package.fruit_names import get_fruit_name
 # Note that when using from package import item, the item can be either a submodule (or subpackage)
 # of the package, or some other name defined in the package, like a function, class or variable.
 # The import statement first tests whether the item is defined in the package; if not, it assumes
@@ -59,3 +60,4 @@ def test_packages():
     assert sound_package.effects.echo.echo_function() == 'Do echo effect'
     assert echo.echo_function() == 'Do echo effect'
     assert echo_function() == 'Do echo effect'
+    assert get_fruit_name() == 'Apple Banana Pineapple Strawberry'
