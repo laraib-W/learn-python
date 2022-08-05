@@ -35,9 +35,11 @@ def test_user_defined_exception():
     # that may occur in functions they define.
     class MyCustomError(Exception):
         """Example of MyCustomError exception."""
+        type = "Exception"
         def __init__(self, message):
             super().__init__(message)
             self.message = message
+            
 
     custom_exception_is_caught = False
 
@@ -47,3 +49,4 @@ def test_user_defined_exception():
         custom_exception_is_caught = True
 
     assert custom_exception_is_caught
+    assert MyCustomError.type == "Exception"
