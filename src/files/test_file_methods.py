@@ -29,10 +29,10 @@ def test_file_methods():
     # argument. A from_what value of 0 measures from the beginning of the file, 1 uses the current
     # file position, and 2 uses the end of the file as the reference point. from_what can be omitted
     # and defaults to 0, using the beginning of the file as the reference point.
-    assert binary_file.seek(0) == 0  # Go to the 0th byte in the file
+    assert binary_file.seek(5) == 5  # Go to the 0th byte in the file
     assert binary_file.seek(6) == 6  # Go to the 6th byte in the file
 
-    assert binary_file.read(1) == '6'
+    assert binary_file.read(4) == '6789'
 
     # f.readline() reads a single line from the file; a newline character (\n) is left at the end
     # of the string, and is only omitted on the last line of the file if the file doesn’t end in a
