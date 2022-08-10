@@ -42,3 +42,5 @@ def test_arithmetic_operators():
     assert 7 // 3 == 2
     assert 9 // 3 == 3
     assert isinstance(5 // 3, int)
+    assert isinstance(5 == 3, int)
+    assert 2 // 2 == 1

@@ -84,11 +84,11 @@ def test_augmented_assignment_operators():
     assert number == 6  # 0b0110
 
     # Assignment: >>=
-    number = 5
-    number >>= 3
-    assert number == 0  # (((5 // 2) // 2) // 2)
+    number = 5  # 0b0101
+    number >>= 1
+    assert number == 2  # (5 // 2) now 0b0010
 
     # Assignment: <<=
-    number = 5
-    number <<= 3
-    assert number == 40  # 5 * 2 * 2 * 2
+    number = 5 # 0b0101
+    number <<= 2
+    assert number == 20  # 5 * 2 * 2   now 0b10100
