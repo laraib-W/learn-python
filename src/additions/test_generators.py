@@ -34,7 +34,7 @@ def generator(s):
     for c in range(len(s)-1,-1,-1):
         yield s[c]
 
-def generator2(n):
+def new_generator(n):
     yield n+1
     yield n+2
     
@@ -50,9 +50,7 @@ def test_generators():
     for c in generator("hello"):
         output += c
     assert output == "olleh" 
-
-    test = generator2(5)
+    test = new_generator(5)
 
     assert next(test) == 6
     assert next(test) == 7
-     
