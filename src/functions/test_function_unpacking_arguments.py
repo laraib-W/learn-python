@@ -26,6 +26,5 @@ def test_function_unpacking_arguments():
     def function_that_receives_names_arguments(first_word, second_word, third_word):
         return first_word + ', ' + second_word + '! ' + third_word
 
-    #arguments_dictionary = {'first_word': 'Hello', 'second_word': 'World'}
     arguments_dictionary = {'first_word': 'Hello', 'second_word': 'World', 'third_word': 'Bye'}
     assert function_that_receives_names_arguments(**arguments_dictionary) == 'Hello, World! Bye'
