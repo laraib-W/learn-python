@@ -34,3 +34,4 @@ def test_comparison_operators():
     number = 5
     assert number <= 5
     assert number <= 6
+    
