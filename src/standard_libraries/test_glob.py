@@ -30,7 +30,4 @@ def test_glob():
         'src/standard_libraries/glob_files/second_file.txt',
         'src/standard_libraries/glob_files/new_file.c'
     ])
-
-    
-
     

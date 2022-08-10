@@ -38,9 +38,7 @@ def test_json():
     encoded_person_string = json.dumps(person_dictionary)
 
     assert encoded_person_string == json_string
-
     assert json.dumps(None) == 'null'
     assert json.dumps(3) == '3'
     assert json.dumps(True) == 'true'
-
-
+    
