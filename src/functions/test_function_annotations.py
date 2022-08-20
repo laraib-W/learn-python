@@ -20,8 +20,11 @@ def breakfast(ham: str, eggs: str = 'eggs') -> str:
     """
     return ham + ' and ' + eggs
 
+def number(n: int) -> bool:
+    return n > 10
 
 def test_function_annotations():
     """Function Annotations."""
 
     assert breakfast.__annotations__ == {'eggs': str, 'ham': str, 'return': str}
+    assert number.__annotations__ == {'n': int, 'return': bool}

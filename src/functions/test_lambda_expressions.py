@@ -29,6 +29,6 @@ def test_lambda_expressions():
     # Another use of lambda is to pass a small function as an argument.
     pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
     # Sort pairs by text key.
-    pairs.sort(key=lambda pair: pair[1])
+    pairs.sort(key=lambda pair: pair[0], reverse = True)
 
-    assert pairs == [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+    assert pairs == [(4, 'four'), (3, 'three'), (2, 'two'), (1, 'one')]

@@ -64,7 +64,6 @@ def test_function_decorators():
         return "Hello, {0}!".format(name)
 
     assert greeting_with_div_p('John') == '<div><p>Hello, John!</p></div>'
-
     # One important thing to notice here is that the order of setting our decorators matters.
     # If the order was different in the example above, the output would have been different.
 
@@ -83,9 +82,10 @@ def test_function_decorators():
             return func_wrapper
         return tags_decorator
 
+    @tags('body')
     @tags('div')
     @tags('p')
     def greeting_with_tags(name):
         return "Hello, {0}!".format(name)
 
-    assert greeting_with_tags('John') == '<div><p>Hello, John!</p></div>'
+    assert greeting_with_tags('John') == '<body><div><p>Hello, John!</p></div></body>'
