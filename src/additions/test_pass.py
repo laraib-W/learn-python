@@ -40,7 +40,11 @@ def test_pass_in_loop():
 # pylint: disable=too-few-public-methods
 class MyEmptyClass:
     """PASS statement in class
-
+    
     "Pass" is commonly used for creating minimal classes like current one.
     """
+    num = 15
+
+    if num == 15:
+        pass
     pass

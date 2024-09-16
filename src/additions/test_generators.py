@@ -29,7 +29,15 @@ def lottery():
     # returns a 4th number between 10 and 20
     yield random.randint(10, 20)
 
+def generator(s):
+    
+    for c in range(len(s)-1,-1,-1):
+        yield s[c]
 
+def new_generator(n):
+    yield n+1
+    yield n+2
+    
 def test_generators():
     """Yield statement"""
     for number_index, random_number in enumerate(lottery()):
@@ -37,3 +45,12 @@ def test_generators():
             assert 0 <= random_number <= 10
         else:
             assert 10 <= random_number <= 20
+
+    output = ""
+    for c in generator("hello"):
+        output += c
+    assert output == "olleh" 
+    test = new_generator(5)
+
+    assert next(test) == 6
+    assert next(test) == 7
