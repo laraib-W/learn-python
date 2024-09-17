@@ -19,3 +19,15 @@ def test_glob():
         'src/standard_libraries/glob_files/first_file.txt',
         'src/standard_libraries/glob_files/second_file.txt'
     ])
+
+    assert sorted(glob.glob('src/standard_libraries/**/*.txt')) == sorted([
+        'src/standard_libraries/glob_files/first_file.txt',
+        'src/standard_libraries/glob_files/second_file.txt'
+    ])
+
+    assert sorted(glob.glob('src/standard_libraries/glob_files/*')) == sorted([
+        'src/standard_libraries/glob_files/first_file.txt',
+        'src/standard_libraries/glob_files/second_file.txt',
+        'src/standard_libraries/glob_files/new_file.c'
+    ])
+    

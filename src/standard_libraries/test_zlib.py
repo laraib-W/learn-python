@@ -11,13 +11,13 @@ import zlib
 
 def test_zlib():
     """zlib."""
-    string = b'witch which has which witches wrist watch'
-    assert len(string) == 41
+    string = b'witch which has witches wrist watch'
+    assert len(string) == 35
 
     zlib_compressed_string = zlib.compress(string)
-    assert len(zlib_compressed_string) == 37
+    assert len(zlib_compressed_string) == 36
 
     zlib_decompressed_string = zlib.decompress(zlib_compressed_string)
-    assert zlib_decompressed_string == b'witch which has which witches wrist watch'
+    assert zlib_decompressed_string == b'witch which has witches wrist watch'
 
-    assert zlib.crc32(string) == 226805979
+    assert zlib.crc32(string) == 505419916

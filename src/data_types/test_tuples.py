@@ -71,7 +71,7 @@ def test_tuples():
     assert first_tuple_number == 12345
     assert second_tuple_number == 54321
     assert third_tuple_string == 'hello!'
-
+    assert  (first_tuple_number, second_tuple_number, third_tuple_string) == (12345, 54321, 'hello!')
     # This is called, appropriately enough, sequence unpacking and works for any sequence on the
     # right-hand side. Sequence unpacking requires that there are as many variables on the left
     # side of the equals sign as there are elements in the sequence. Note that multiple assignment
